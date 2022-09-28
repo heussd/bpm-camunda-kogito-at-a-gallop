@@ -1,0 +1,77 @@
+plugins {
+    id "org.springframework.boot" version '2.7.4'
+    id "io.spring.dependency-management" version "1.0.11.RELEASE"
+    id 'java'
+    id 'org.jetbrains.kotlin.jvm' version '1.5.31'
+}
+
+
+group 'com.example.hello'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+def versionSwagger = "2.9.2"
+def springVersion = '2.7.4'
+def camundaVersion = '7.17.0'
+def keycloakVersion = '15.0.1'
+
+// Force a version of log4j because of
+// CVE-2021-44228 -> 2.15.0
+// CVE-2021-45046 -> 2.16.0
+// CVE-2021-45105 -> 2.17.0
+ext['log4j2.version'] = '2.17.0'
+
+
+dependencies {
+    implementation "org.springframework.boot:spring-boot-starter-web"
+    //implementation 'org.springframework.boot:spring-boot-starter-actuator'
+    testImplementation("org.springframework.boot:spring-boot-starter-test") {
+        exclude group: "org.junit.vintage", module: "junit-vintage-engine"
+    }
+
+    implementation("org.camunda.bpm.springboot:camunda-bpm-spring-boot-starter:${camundaVersion}")
+    implementation("org.camunda.bpm.springboot:camunda-bpm-spring-boot-starter-rest:${camundaVersion}")
+    implementation("org.camunda.bpm.springboot:camunda-bpm-spring-boot-starter-webapp:${camundaVersion}")
+    implementation "org.camunda.bpm:camunda-external-task-client:${camundaVersion}"
+
+    implementation("org.camunda.bpm:camunda-engine-spring:${camundaVersion}")
+    implementation("org.camunda.bpm:camunda-engine-plugin-spin:${camundaVersion}")
+    implementation 'org.camunda.spin:camunda-spin-dataformat-all:1.11.0'
+    implementation 'com.sun.xml.bind:jaxb-impl:2.2.3'
+
+    implementation("org.springframework.boot:spring-boot-starter-jdbc:${springVersion}")
+    implementation("org.springframework.boot:spring-boot-starter-amqp:${springVersion}")
+
+    implementation("com.h2database:h2")
+    testImplementation("org.springframework.boot:spring-boot-starter-test:${springVersion}")
+    //testImplementation("org.springframework.amqp:spring-rabbit-test:${springVersion}")
+
+
+    implementation 'org.apache.commons:commons-lang3:3.12.0'
+    implementation('com.fasterxml.jackson.module:jackson-module-kotlin:2.13.0')
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8"
+
+    implementation("io.springfox:springfox-swagger2:${versionSwagger}")
+    implementation("io.springfox:springfox-swagger-ui:${versionSwagger}")
+
+
+    testImplementation "org.camunda.bpm.springboot:camunda-bpm-spring-boot-starter-test:${camundaVersion}"
+    testImplementation 'org.camunda.bpm.extension.mockito:camunda-bpm-mockito:5.15.0'
+    testImplementation 'org.camunda.bpm.extension:camunda-bpm-junit5:1.0.2'
+}
+
+
+dependencyManagement {
+    imports {
+        mavenBom "org.keycloak.bom:keycloak-adapter-bom:${keycloakVersion}"
+    }
+}
+test {
+    useJUnitPlatform()
+    minHeapSize = "512m"
+    maxHeapSize = "2G"
+}
+
