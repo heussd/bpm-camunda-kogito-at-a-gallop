@@ -28,12 +28,12 @@ October 2022
 ## Agenda
 
 - BPM and its ecosystem
-- Model our own process featuring
-	- human tasks
-	- service invokes
-- Implement and deploy it
-	- ... in Camunda 7
-	- ... in Kogito
+- Model our own process featuring:
+  - human tasks
+  - service invokes
+- Implement and deploy it...
+  - ... in Camunda 7
+  - ... in Kogito
 - Reflect about our impressions
 
 <!-- section -->
@@ -49,7 +49,6 @@ October 2022
 #### Creditworthiness Check
 
 ![BPMN example - Creditworthiness Check. Taken from https://camunda.com/bpmn/examples/](bpmn-example-creditworthiness-check.png)
-
 
 ---
 
@@ -71,14 +70,15 @@ October 2022
 ### Why BPM?
 
 1. Economical: You might draw it (in PowerPoint) anyway, why not in a executable standard notation? <!-- .element: class="fragment" data-fragment-index="1" -->
-1. Subject Matter: Business people can model the process, they know it best - right?! <!-- .element: class="fragment" data-fragment-index="2" -->
-1. Technological: Software that handles: <!-- .element: class="fragment" data-fragment-index="3" -->
+1. Subject Matter: Business people can model the process themselves and they know it best<!-- .element: class="fragment" data-fragment-index="2" -->
+   - right?! <!-- .element: class="fragment" data-fragment-index="3" -->
+1. Technological: Software that takes care of: <!-- .element: class="fragment" data-fragment-index="4" -->
    - states and versions of processes
    - human / machine interaction
 
 ---
 
-### _Completely unbiased_ comparison of BPM suites
+### _Completely unbiased_ comparison of approaches
 
 |                  Yes Code                  |          No Code          |
 | :----------------------------------------: | :-----------------------: |
@@ -129,15 +129,13 @@ Hands on 🙌
 
 ### Highlights
 
-- Shared, Container Managed Process Engine - SpringBoot starter
-- Modelling:
-  - Camunda Modeller desktop app to model
-  - Cawemo online tool + social features
-- User interface: Camunda Task List
-- Admin interface: Camunda Cockpit
-- Payed features:
-  - Graphical process instance migration
-  - Analytics such as Heatmaps on Process
+Rich suite with everything you need. Shared, Container Managed Process Engine via SpringBoot starter
+
+|                  Modelling                  |  User Interface   | Admin Interface |
+| :-----------------------------------------: | :---------------: | :-------------: |
+| Camunda Modeller (Desktop), Cawemo (Online) | Camunda Task List | Camunda Cockpit |
+
+Payed features: Graphical process instance migration, Analytics such as Heatmaps on processes, ...
 
 <!-- section -->
 
@@ -178,11 +176,11 @@ Hands on 🫶
 
 ### Highlights
 
-- Hyper-scalable Cloud-native microservice architecture
-- Focus on Domain language and auto generation.
-- Modelling: VSCode plug-in to model processes.
-- User interface: None (Task console as dedicated service available)
-- Admin interface: None (Administration console as dedicated service available)
+Hyper-scalable Cloud-native microservice architecture, focus on Domain language and auto generation.
+
+|   Modelling   |                   User Interface                   |                   Admin Interface                   |
+| :-----------: | :------------------------------------------------: | :-------------------------------------------------: |
+| VSCode plugin | None (Task console available as dedicated service) | None (Admin console available as dedicated service) |
 
 ---
 
@@ -350,13 +348,13 @@ In Camunda you have to test the entire process to ensure that all referenced cla
 
 (personal opinion)
 
-- You have a chain of activities? States? Human-Machine-Interaction? You might need BPM.
-- BPMN is a great means for communication.
-- We are right in the middle of a transition from
-	- *application server* BPM suites towards ...
-	- *Cloud-native* BPM suites.
-- Yes-Code-approaches rock, yet the amount of code you don't have to write is just amazing.
-- Camunda ❤️, Kogito ❤️
+- You have a chain of activities? States? Human-Machine-Interaction? You might need BPM. <!-- .element: class="fragment" data-fragment-index="1" -->
+- BPMN is a great means for communication.<!-- .element: class="fragment" data-fragment-index="2" -->
+- We are right in the middle of a transition from<!-- .element: class="fragment" data-fragment-index="3" -->
+  - _application server_ BPM suites towards ...
+  - _Cloud-native_ BPM suites.
+- Yes-Code-approaches rock, yet the amount of code you don't have to write is just amazing.<!-- .element: class="fragment" data-fragment-index="4" -->
+- Camunda ❤️, Kogito ❤️<!-- .element: class="fragment" data-fragment-index="5" -->
 
 ---
 
